@@ -25,4 +25,4 @@ class KeepcodingComponent extends HTMLElement {
   }
 }
 
-customElements.define("keepcoding-component", KeepcodingComponent);
+window.customElements.define("keepcoding-component", KeepcodingComponent);
