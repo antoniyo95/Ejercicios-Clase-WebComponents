@@ -17,7 +17,9 @@ class DigitalClock extends HTMLElement {
       const minutes = now.getMinutes();
       const seconds = now.getSeconds();
 
-      this.innerHTML = `${hours} : ${minutes} : ${seconds}`
+      this.innerHTML = `
+      <h1>Reloj Digital sin Shadow DOM</h1>
+      <p>${hours} : ${minutes} : ${seconds}</p>`
     }, 1000);
   }
 
