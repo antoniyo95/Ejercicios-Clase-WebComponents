@@ -32,11 +32,12 @@
       }
 
       connectedCallback() {
+        console.log('connectedCallback');
         const template = document.querySelector('template');
 
         const templateClone = template.content.cloneNode(true);
 
-        const imageUrl = this.getAttribute('image');
+        const imageUrl = this.getAttribute('image') || 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png';
 
         const imgElement = templateClone.querySelector('img');
         imgElement.src = imageUrl;
@@ -44,6 +45,16 @@
         this.appendChild(templateClone);
       }
 
+      static get observedAttributes() {
+        return ['image'];
+      }
+
+      attributeChangedCallback(attributeName, oldValue, newValue) {
+        console.log(`attributeChangedCallback --> ${attributeName} ha cambiado de ${oldValue} a ${newValue}`);
+        if (oldValue !== null) {
+          this.querySelector('img').src = newValue;
+        }
+      }
     }
 
     window.customElements.define('lazy-image', LazyImage)

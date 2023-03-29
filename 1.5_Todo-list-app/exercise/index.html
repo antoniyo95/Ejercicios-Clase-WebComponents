@@ -8,15 +8,8 @@
 </head>
 <body>
   
-  <input-field></input-field>
+  <list-items-manager></list-items-manager>
 
-  <input-field id="cristian" buttonLabel="Añadir a la lista" placeholder="Escribe algo que tengas pendiente"></input-field>
-
-  <script>
-    document.querySelector('#cristian').addEventListener('submit', (event) => {
-      console.log(event.detail);
-    })
-  </script>
-  <script src="./input-field.js"></script>
+  <script type="module" src="./list-items-manager.js"></script>
 </body>
 </html>
